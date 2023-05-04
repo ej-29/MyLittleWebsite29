@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cej.boot.backend.mapper.MemberMapper">
+    <resultMap id="member" type="cej.boot.backend.dto.MemberDTO">
+        <id property="mb_num" column="MB_NUM"/>
+        <result property="mb_status" column="MB_STATUS"/>
+        <result property="mb_id" column="MB_ID"/>
+        <result property="mb_pwd" column="MB_PWD"/>
+        <result property="mb_name" column="MB_NAME"/>
+        <result property="mb_phone" column="MB_PHONE"/>
+        <result property="mb_rdate" column="BD_RDATE"/>
+        <result property="mb_udate" column="BD_UDATE"/>
+    </resultMap>
+
+    <select id="listM" resultType="cej.boot.backend.dto.MemberDTO">
+        select * from MEMBER order by MB_NUM desc
+    </select>
+
+    <select id="selectByIdUser" resultType="MemberDTO" parameterType="String">
+        select * from MEMBER where MB_ID=#{mb_id}
+    </select>
+
+    <select id = "selectByNum" resultType="MemberDTO" parameterType="long">
+            select * from MEMBER where MB_NUM=#{mb_num}
+    </select>
+    <insert id="insert" parameterType="MemberDTO">
+        <selectKey keyProperty="mb_num" order="BEFORE" resultType="long">
+            select MEMBER_SEQ.nextval from dual
+        </selectKey>
+            insert into MEMBER values(#{mb_num}, 0, #{mb_id}, #{mb_pwd}, #{mb_name}, #{mb_phone}, SYSDATE, SYSDATE)
+    </insert>
+    <delete id="draw" parameterType="long">
+        delete from MEMBER where MB_NUM=#{mb_num, jdbcType=VARCHAR}
+    </delete>
+</mapper>

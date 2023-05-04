@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/board.css">
+<script src="/js/trim.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>The Board: My Little Website</title>
+</head>
+<!--<body class="body" onload="input.writer.focus()">-->
+<body class="body" onload="input.writer.focusFirstInput()">
+<br>
+<div class="back">
+    <div class="logoutBTN"><a href="/logout.do" th:if="${session.member != null}">
+        <img id="logoutButton" class="logoutButton" src="/img/logoutButton.png">
+    </a></div>
+    <a href="/"><img class="backButton" src="/img/back.png" align="right"></a>
+    <span class="loginName" align="right" th:if="${session.member != null}">
+        <span class="nameUser" th:text="${session.member.mb_id}"></span>님 어서오세요!
+  </span>
+</div>
+
+
+<div>
+<center><span class="header">My Little Website</span></center></div>
+    <div class="bgVideo">
+        <video class="bgVideoContent" autoplay muted loop>
+            <source src="/video/video.mp4" type="video/mp4" />
+            <source src="/video/video.webm" type="video/webm" />
+            Your browser is not supported!
+        </video>
+    </div>
+            <div class="divForButtons">
+                <input type="image" id="show" class="divCButton" src="/img/createButton.png">
+                <a href="/selfIntroduce"><img class = "siButton" src="/img/introductionButton.png"></a>
+            </div>
+            <div class="divForDButton">
+                <a href="/draw" style="display:none;" id="drawButton"><img src="/img/withdrawButton.png"></a>
+            </div>
+
+
+
+    <!--create 글쓰기 모달-->
+                   <div class="divBoard">
+                        <div class="backgroundModal">
+                          <div class="windowModal">
+                              <div class="popup">
+                                  <button class="closeButton" id="close"><span class="X">X</span></button>
+                                  <center>
+                                   <h3 style="color: white; font-size: 25px;"> Write Your Story</h3>
+                                  </center>
+                                  <form name="input" method="post" action="write_ok.do">
+                                      <table class = "createTable" width="600" align="center">
+
+                                          <tr>
+                                              <td align="center"><b>ID</b></td>
+<!--                                              <td><input type="text" name="bd_id" id="input.writer" size="70"></td>-->
+                                              <td><span th:text="${session.member.mb_id}" style="color: white;">id하드코딩</span></td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center"><b>TITLE</b></td>
+                                              <td><input type="text" name="bd_title" size="70"></td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center"><b>CONTENT</b></td>
+                                              <td><textarea type="text" name="bd_content" rows="15" cols="75"></textarea></td>
+                                          </tr>
+
+                                          <tr>
+                                              <td class="tdButtons" colspan="2" align="center">
+                                                  <button class="doneButton" onclick="check()"><img src="/img/doneButton.png"></button>
+                                                  <button class="rewriteButton" type="reset" onclick="document.input.bd_id.focus()"><img src="/img/rewriteButton.png"></button>
+                                              </td>
+                                          </tr>
+                                      </table>
+                                  </form>
+                                  </font>
+                              </div>
+                            </div>
+                        </div>
+
+
+                       <!--게시판 테이블-->
+                       <table class="table">
+                           <tr>
+                               <th class="thOne">No.</th>
+                               <th class="thTwo">Writer</th>
+                               <th class="thThree">Title</th>
+                               <th>Date</th>
+                           </tr>
+                           <tr th:each="boardDTO:${list}">
+                               <td th:text="${boardDTO.bd_num}" class="tdOne">번호</td>
+
+                               <td>
+                                   <span th:if="${session.member.mb_id != boardDTO.bd_id}" th:text="${boardDTO.bd_id}">작성자</span>
+                                   <span th:if="${session.member.mb_id == boardDTO.bd_id}" th:text="${session.member.mb_id}">작성자</span>
+                               </td>
+                               <td class="tdThree"><a th:href="@{/board/content.do(bd_num=${boardDTO.bd_num})}"><span th:text="${boardDTO.bd_title}" class="titleFont">제목</span></a></td>
+                               <td th:text="${boardDTO.bd_date}">작성일</td>
+                           </tr>
+                       </table>
+
+                   </div>
+    </div>
+                    <script>
+
+                    function show () {
+                    document.querySelector(".backgroundModal").className = "backgroundModal show";
+                    }
+
+                    function close () {
+                    document.querySelector(".backgroundModal").className = "backgroundModal";
+                    }
+
+                    document.querySelector("#show").addEventListener('click', show);
+                    document.querySelector("#close").addEventListener('click', close);
+
+                    function check(){
+                    for(var i=0; i<document.input.elements.length; i++)
+                        {
+                        if(document.input.elements[i].value == "")
+                            {
+                            alert("글이 작성 됩니다.");
+                            return false;
+                            }
+                    }
+                    document.input.submit();
+                  }
+
+
+
+                    function focusFirstInput() {
+                      var firstInput = document.querySelector('form[name="input"] input');
+                      if (firstInput) {
+                        firstInput.focus();
+                      }
+                    }
+
+                    window.onload = function() {
+                      focusFirstInput();
+                    };
+
+                        function check() {
+                        var idFoc = f.mb_id;
+                        var idVal = idFoc.value;
+                        idVal = trim(idVal) //공백제거
+
+                        var pwdFoc = f.mb_pwd;
+                        var pwdVal = pwdFoc.value;
+                        var checkPwdFoc = f.mb_pwd2;
+                        var checkPwdVal = checkPwdFoc.value;
+
+                        // 로그인 버튼 클릭 시, is_logged_in 값을 true로 변경
+                        f.is_logged_in.value = "true";
+                        f.submit();
+
+                      }
+
+                        window.onload = function () {
+                          // sessionStorage에 is_logged_in 값이 true로 저장되어 있는 경우, draw 버튼 보이기
+                          if (sessionStorage.getItem('is_logged_in') === 'true') {
+                            document.getElementById("drawButton").style.display = "block";
+                          }
+                        }
+
+                        function loginSuccess() {
+                         // 로그인 성공 시 호출되는 코드
+                         document.body.classList.add('logged-in');
+                }
+
+                      // 로그인 여부 체크 (로그아웃버튼)
+                      if('${session.member}' != '') {
+                        document.getElementById('logoutButton').style.display = 'inline-block';
+                      }
+                      // 로그인 여부 체크 (탈퇴버튼)
+                      if('${session.member}' != '') {
+                        document.getElementById('drawButton').style.display = 'inline-block';
+                      }
+</script>
+
+
+</body>
+
+</html>

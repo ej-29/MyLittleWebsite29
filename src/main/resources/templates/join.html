@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/join.css">
+<script src="/js/trim.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Join My Little Website</title>
+</head>
+<body class="body">
+<div class="bgVideo">
+  <video class="bgVideoContent" autoplay muted loop>
+    <source src="/video/video.mp4" type="video/mp4" />
+    <source src="/video/video.webm" type="video/webm" />
+    Your browser is not supported!
+  </video>
+</div>
+<br>
+<div class="back"><a href="login"><img src="/img/back.png"></a></div>
+<div>
+  <center><span class="header">Join My Little Website</span></center></div>
+<br>
+<center>
+  <span class="joinFont"><h3>Join</h3></span>
+
+  <form name="input" method="post" action="join_ok.do">
+    <table class = "joinTable" width="500" align="center">
+
+      <tr>
+        <td align="center"><b><span class="idFont">ID:</span></b></td>
+        <td><input type="text" name="mb_id" size="25"></td>
+      </tr>
+      <tr>
+        <td align="center"><b><span class="pwdFont">PASSWORD:</span></b></td>
+        <td><input type="password" name="mb_pwd" size="25"></td>
+      </tr>
+      <tr>
+        <td align="center"><b><span class="nameFont">NAME:</span></b></td>
+        <td><input type="text" name="mb_name" size="25"></td>
+      </tr>
+      <tr>
+        <td align="center"><b><span class="phoneFont">PHONE:</span></b></td>
+        <td><input type="text" name="mb_phone" size="25"></td>
+      </tr>
+
+      <tr>
+
+        <td class="tdButtons" colspan="2" align="center">
+          <button class="button-class" onclick="check()"><img src="/img/doneButton.png"></button>
+          <button class="button-class" type="reset" onclick="input.writer.focus()"><img src="/img/rewriteButton.png"></button>
+        </td>
+
+      </tr>
+    </table>
+  </form>
+
+</center>
+

@@ -1,0 +1,142 @@
+
+.body{
+    background-color: #62665F;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:link {
+  color : #d4b53b;
+}
+
+a:visited {
+  color : #d4b53b;
+}
+
+.header{
+    color: #d4b53b;
+    font-family: Segoe Script;
+    font-size: 70px;
+}
+
+.table{
+    background-color: #f5f4d7;
+    color: #d4b53b;
+    position: relative;
+    margin-top: 5%;
+    width: 900px;
+    height: 300px;
+    border-collapse: collapse;
+}
+
+.td{
+    font-size: 25px;
+    color: #62665F;
+    font-weight: bold;
+    background-color: #ded099;
+}
+
+.tdTd{
+    color: #62665F;
+}
+
+.back{
+    position: relative;
+    float: right;
+    margin-top: 10%;
+}
+
+.backgroundModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  /* 숨기기 */
+  z-index: -1;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.windowModal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
+  width: 800px;
+  height: 600px;
+  transform: translate(-50%, -40%);
+}
+
+.show .popup {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+
+.closeButton{
+     border: none;
+     background-color: rgba(0,0,0,0);
+}
+
+.X{
+    font-size: 20px;
+    cursor:pointer;
+    display: inline-block;
+    float: right;
+    margin: 0 750px;
+    color: white;
+}
+
+.createTable{
+    text-align: center;
+    border: 1px solid;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.doneButton{
+    border: solid 1px;
+    background-color: rgba(0,0,0,0);
+    cursor:pointer;
+}
+
+.rewriteButton{
+    border: solid 1px;
+    background-color: rgba(0,0,0,0);
+    cursor:pointer;
+}
+
+th, td{
+    text-align: center;
+    color: #d4b53b;
+    border: 1px solid;
+}
+
+.divForButton{
+    position: relative;
+    float: right;
+    margin-right: 502px;
+    margin-top: 45px;
+}
+
+.tdButton{
+    color: #62665F;
+    border: 1px solid;
+}

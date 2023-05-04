@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/update.css">
+<script src="/js/trim.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Revise Your Contents </title>
+    <br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+	    function f(){
+	    	input.bd_id.value = "";
+	    	input.bd_title.value = "";
+	    	input.bd_content.innerText = "";
+	    	$("#ta").val("");
+
+	    	input.bd_id.focus();
+	    }
+
+<!--	    function check() {-->
+<!--          for (var i = 0; i < document.input.elements.length; i++) {-->
+<!--            if (document.input.elements[i].value == "") {-->
+<!--              alert("글이 수정 됩니다.");-->
+<!--              return false;-->
+<!--            }-->
+<!--          }-->
+<!--          return true;-->
+<!--        }-->
+
+            function check() {
+              var elements = document.querySelectorAll("input, textarea");
+              for (var i = 0; i < elements.length; i++) {
+                if (elements[i].value.trim() === "") {
+                  alert("모든 항목을 입력하세요.");
+                  return false;
+                }
+              }
+<!--              document.input.submit();-->
+              document.getElementById("input").submit();
+
+            }
+
+
+
+	</script>
+</head>
+
+<body class = "body">
+<a href="/board/list.do"><img src="/img/back.png" align="right"></a>
+<center>
+        <div>
+        <span class="header"> Revise Your Contents</span>
+            <br>
+            <br>
+
+
+<!--            <form th:each="boardDTO:${list}" th:if="${boardDTO.bd_num} == ${bd_num}">-->
+<!--            <table align="center">-->
+
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            <input type="hidden" name='bd_num' th:value="${boardDTO.bd_num}"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        <td align='center'>ID</td>-->
+<!--                        <td><input name='bd_id' readonly th:value ="${boardDTO.bd_id}"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        <td align='center'>TITLE</td>-->
+<!--                        <td><input name='bd_title' th:value="${boardDTO.bd_title}"/>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>-->
+<!--                        <td align='center'>CONTENT</td>-->
+<!--                        <td> <textarea id='ta' name='bd_content' rows='15' cols='70' th:value="${boardDTO.bd_content}"></textarea></td>-->
+
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td colspan='2' align='center'>-->
+<!--                            <div class="tdDiv">-->
+<!--                                <a href='/board/list.do'><img src="/img/listButton.png"></a>-->
+<!--                                <button class="doneButton" type="submit" onclick="check()"><img src="/img/doneButton.png"></button>-->
+<!--                                <button class="rewriteButton" type="reset" onclick="f()"><img src="/img/rewriteButton.png"></button>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                </table>-->
+<!--            </form>-->
+
+            <form name="input" th:object="${boardDTO}" method="post" action="/board/update_ok.do">
+                <table align="center">
+                    <tr>
+                        <td>
+                            <input type="hidden" name="bd_num" th:value="${boardDTO.bd_num}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">ID</td>
+                        <td><input name="bd_id" readonly th:value="${boardDTO.bd_id}" th:name="bd_id" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center">TITLE</td>
+                        <td><input name="bd_title" th:value="${boardDTO.bd_title}" /></td>
+                    </tr>
+                    <tr>
+                        <td align="center">CONTENT</td>
+                        <td><textarea id="ta" name="bd_content" rows="15" cols="70" th:text="${boardDTO.bd_content}" /></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <div class="tdDiv">
+                                <a href="/board/list.do"><img src="/img/listButton.png" /></a>
+                                <button class="doneButton" type="submit" onclick="check()"><img src="/img/doneButton.png" /></button>
+                                <button class="rewriteButton" type="reset" onclick="f()"><img src="/img/rewriteButton.png" /></button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+
+
+        </div>
+            </center>
+                 </body>
+                     </html>
+

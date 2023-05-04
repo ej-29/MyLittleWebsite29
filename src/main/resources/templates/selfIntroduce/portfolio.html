@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/selfIntroduce.css">
+<script src="/js/trim.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Self-Introduction: My Little Website</title>
+</head>
+<body>
+<div class="back"><a href="/selfIntroduce"><img src="/img/back.png"></a></div>
+<div id="menu">
+  <br>
+  <ul>
+    <li><a href="/selfIntroduce/cej" onclick="do_click();">이름 및 생년월일</a></li><br>
+    <li><a href="/selfIntroduce/school" onclick="do_click();">학력</a></li><br>
+    <li><a href="/selfIntroduce/career" onclick="do_click();">이력</a></li><br>
+    <li><a href="/selfIntroduce/class" onclick="do_click();">수강한 교육</a></li><br>
+    <li><a href="/selfIntroduce/portfolio" onclick="do_click();">포트폴리오</a></li><br>
+    <li><a href="/selfIntroduce/stWk" onclick="do_click();">장/단점</a></li><br>
+    <li><a href="/board/list.do" onclick="do_click();">Board</a></li><br>
+  </ul>
+</div>
+<div id="content">
+  <div class="bgVideo">
+    <video class="bgVideoContent" autoplay muted loop>
+      <source src="/video/video.mp4" type="video/mp4" />
+      <source src="/video/video.webm" type="video/webm" />
+      Your browser is not supported!
+    </video>
+  </div>
+  <div id="listDiv">
+    <ul>
+      <li><h2>포트폴리오 - 최은정</h2></li><br>
+      <li><h3>01. My Little Website</h3></li><br>
+      <li><img src="/img/MyLittleWebsite.png"></li><br>
+      <li>JAVA, MyBatis, DB(ORACLE), Spring 등을 활용하여 만든 개인 웹사이트</li><br><br><br>
+
+      <li><h3>02. 가산대학교 전자정보시스템</h3></li><br>
+      <li><img src="/img/gu.png"></li><br>
+      <li>JAVA, DB(ORACLE)을 활용하여 가상의 대학교의 전자정보시스템을 구현</li><br>
+      <li><a href = "http://naver.me/FdGt7GQ9">download</a></li><br><br><br>
+
+      <li><h3>03. Libflix 영화 스트리밍 사이트</h3></li><br>
+      <li><img src="/img/libflix.png"></li><br>
+      <li>Django, Python을 활용하여 넷플릭스를 벤치마킹한 웹사이트를 구현</li><br>
+      <li><a href = "http://naver.me/Ix7BW0Ka">download</a></li><br><br><br>
+
+      <li><h3>04. Bom Community 개발자를 위한 커뮤니티</h3></li><br>
+      <li><img src="/img/bomCommunity.png"></li><br>
+      <li>JAVA, SpringBoot를 활용하여 개바자를 위한 커뮤니티 웹사이트를 구현</li><br>
+      <li><a href = "http://naver.me/GEuvIZmf">download</a></li><br><br><br>
+
+      <li><h3>05. [개인] 파이썬 머신러닝 미션  - 우리나라 마약범죄 구속 건수</h3></li><br>
+      <li><img src="/img/python.png"></li><br>
+      <li>파이썬의 ML 기능을 활용하여 우리나라 마약범죄 구속 건수를 예측</li><br>
+      <li><a href = "http://naver.me/Gz1DgxhX">download</a></li><br><br><br>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

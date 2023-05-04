@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/login.css">
+<script src="/js/trim.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>INTO My Little Website</title>
+</head>
+<body class="body">
+<br>
+<div class="back"><a href="/"><img src="/img/back.png"></a></div>
+<div>
+  <center><span class="header">Into My Little Website</span></center></div>
+<br>
+<div class="bgVideo">
+  <video class="bgVideoContent" autoplay muted loop>
+    <source src="/video/video.mp4" type="video/mp4" />
+    <source src="/video/video.webm" type="video/webm" />
+    Your browser is not supported!
+  </video>
+</div>
+<center>
+<span class="loginFont"><h3>Login</h3></span>
+</center>
+
+<form name="input" method="post" action="login_ok.do">
+  <table class="loginTable" width="600" align="center">
+
+    <tr>
+      <td align="center"><b><span class="idFont">ID:</span></b></td>
+      <td><input type="text" name="mb_id" size="25"></td>
+    </tr>
+    <tr>
+      <td align="center"><b><span class="pwdFont">PASSWORD:</span></b></td>
+      <td><input type="password" name="mb_pwd" size="25"></td>
+    </tr>
+
+    <tr>
+
+      <td class="tdButtons" colspan="2" align="center">
+        <input type="hidden" name="is_logged_in" value="false">
+        <button id="loginButton" class="button-class" onclick="check()"><img src="/img/doneButton.png"></button>
+        <a href="join"><img src="/img/joinButton.png"></a>
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+<script>
+  function check(){
+    var idFoc = f.mb_id;
+    var idVal = idFoc.value;
+    idVal = trim(idVal) //공백제거
+
+    var pwdFoc = f.mb_pwd;
+    var pwdVal = pwdFoc.value;
+    var checkPwdFoc = f.mb_pwd2;
+    var checkPwdVal = checkPwdFoc.value;
+
+    f.submit();
+
+  }
+
+</script>
+</body>
+</html>

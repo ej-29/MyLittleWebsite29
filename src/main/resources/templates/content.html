@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/content.css">
+<script src="/js/trim.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Read the stories: My Little Website</title>
+    <link rel="stylesheet" href="/css/content.css">
+    <script src="/js/trim.js"></script>
+</head>
+
+<body class="body" onload="document.getElementById('writerInput').focus()">
+
+
+<a href="/board/list.do"><img src="/img/back.png" align="right"></a>
+<center>
+    <br>
+    <span class="header">Read the Stories</span>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <form name="input" method="get" action="content.do">
+
+    <table class="table" width='900' align='center'>
+                <th:block th:each="boardDTO:${list}" th:if="${boardDTO.bd_num} == ${bd_num}">
+                    <tr>
+                        <td class="td" width='20%' align='center'>No.</td>
+                        <td class="tdTd"><span th:text="${boardDTO.bd_num}">번호</span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td" align='center'>ID</td>
+                        <td class="tdTd"><span id="writerInput" th:text="${boardDTO.bd_id}">ID_test</span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td" align='center'>TITLE</td>
+                        <td class="tdTd"><span th:text="${boardDTO.bd_title}">title_test</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td" align='center'>CONTENTS</td>
+                        <td class="tdTd"><span th:text="${boardDTO.bd_content}">contents_test</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td" align='center'>DATE</td>
+                        <td class="tdTd"><span th:text="${boardDTO.bd_date}">date</span></td>
+                    </tr>
+                    <tr>
+                        <td class="td" align='center'>U-DATE</td>
+                        <td class="tdTd"><span th:text="${boardDTO.bd_udate}">udate</span></td>
+                    </tr>
+                </th:block>
+        </table>
+    </form>
+    <br><br>
+    <center><div>
+        <table>
+            <th:block th:each="boardDTO:${list}" th:if="${boardDTO.bd_num} == ${bd_num}">
+            <tr>
+                <td class="tdButton"><a id="reviseButton" th:href="@{/board/update.do(bd_num=${boardDTO.bd_num})}"><img src="/img/reviseButton.png"></a></td>
+                <td class="tdButton"><a th:href="@{/board/delete.do(bd_num=${boardDTO.bd_num})}" align='center'><img src="/img/deleteButton.png"></a></td>&nbsp;&nbsp;
+                <td class="tdButton"><a href='/board/list.do' align='center'><img src="/img/listButton.png"></a></td>
+            </tr>
+            </th:block>
+        </table>
+    </div>
+    </center>
+</center>
+<script>
+       window.onload = function() {
+       document.getElementById('writerInput').focus();
+      };
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+.body{
+    background-color: #62665F;
+}
+
+.back{
+    position: relative;
+    float: right;
+    margin-top: 10%;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:link {
+  color : #d4b53b;
+}
+
+a:visited {
+  color : #d4b53b;
+}
+
+.header{
+    color: #d4b53b;
+    font-family: Segoe Script;
+    font-size: 70px;
+}
+
+td{
+    color: #d4b53b;
+}
+
+.doneButton{
+    border: solid 1px;
+    border-color: #62665F;
+    background-color: rgba(0,0,0,0);
+    cursor:pointer;
+}
+
+.rewriteButton{
+    border: solid 1px;
+    border-color: #62665F;
+    background-color: rgba(0,0,0,0);
+    cursor:pointer;
+}
+
+.tdDiv{
+    position: relative;
+    margin-left: 20%;
+}
+}
+
+.back{
+    position: relative;
+    float: right;
+
+}

@@ -1,0 +1,224 @@
+.logoutBTN{
+    width: 107px;
+    position: relative;
+}
+
+.nameUser{
+    color: #d4b53b;
+}
+
+.loginName{
+    color: white;
+}
+
+.backButton{
+    position:relative;
+    margin-top: -7px;
+}
+
+.logged-in #drawButton {
+  display: block;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:link {
+  color : #d4b53b;
+}
+
+a:visited {
+  color : #d4b53b;
+}
+
+.body{
+    background-color: black;
+}
+
+.header{
+    color: #d4b53b;
+    font-family: Segoe Script;
+    font-size: 70px;
+}
+
+.bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+&__Content {
+    height: 100%;
+    width: 100%;
+  }
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.divImg{
+    position: relative;
+    top: 60px;
+    float: left;
+    margin-left: 200px;
+}
+
+.divBoard{
+    position: absolute;
+    margin-left: 25%;
+    top: 25%;
+}
+
+.divForButtons{
+        position: relative;
+        float: right;
+        margin-right: 525px;
+        margin-top: 55px;
+}
+
+.divForDButton{
+        position: relative;
+        float: right;
+        margin-right: 5px;
+        margin-top: 55px;
+}
+
+.closeButton{
+     border: none;
+     background-color: rgba(0,0,0,0);
+}
+
+.X{
+    font-size: 20px;
+    cursor:pointer;
+    display: inline-block;
+    float: right;
+    margin: 0 750px;
+    color: white;
+}
+
+.doneButton{
+    border: solid 1px;
+    background-color: rgba(0,0,0,0);
+    cursor:pointer;
+}
+
+.rewriteButton{
+    border: solid 1px;
+    background-color: rgba(0,0,0,0);
+    cursor:pointer;
+}
+
+table{
+    position: relative;
+    margin-top: 1%;
+    width: 900px;
+    color: #d4b53b;
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+th, td{
+    text-align: center;
+    color: #d4b53b;
+    border: solid 1px;
+}
+
+.thOne{
+    width: 5%;
+}
+
+.tdOne{
+    width: 5%;
+}
+
+.thTwo{
+    width: 15%;
+}
+
+.tdTwo{
+    width: 15%;
+}
+
+.thThree{
+    width: 45%;
+}
+
+.tdThree{
+    width: 45%;
+}
+
+
+.backgroundModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  /* 숨기기 */
+  z-index: -1;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  z-index: 1000;
+  transition: all .5s;
+}
+
+.windowModal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.createTable{
+    text-align: center;
+    border: 1px solid;
+    width: 100%;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
+  width: 800px;
+  height: 600px;
+  transform: translate(-50%, -40%);
+}
+
+.show .popup {
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+}
+
+
+.titleFont{
+    cursor:pointer;
+}
+
+
+.back{
+    position: relative;
+    float: right;
+}
+
+.loginButton {
+  display: block;
+}
+
+#logoutButton {
+  display: none;
+}

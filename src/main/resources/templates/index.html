@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/main.css">
+<script src="/js/trim.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>The Door: My Little Website</title>
+</head>
+<body class="body">
+<div class="theDoorParents"></div>
+<div class="theDoorChild">
+    <figure>
+            <a th:href="${session.member != null ? '/board/list.do' : '/login'}">
+            <img id="myInput" class ="theDoorImg" src="/img/door.jpg">
+            <figcaption>Knock Knock!</figcaption>
+        </a>
+    </figure>
+
+</div>
+<div class="warningMSG"><span class="fontBlock">WARNING</span>: You May not know what fate is waiting for you behind this Door. </div>
+<script>
+    const myInput = document.getElementById("myInput");
+    const logoutBtn = document.getElementById('logoutButton');
+
+    function onLoginSuccess() {
+      myInput.style.display = 'none';
+      logoutBtn.style.display = 'inline-block';
+    }
+
+    function focusInput() {
+    const myInput = document.getElementById('myInput');
+     if (myInput) {
+    myInput.focus();
+  }
+}
+    focusInput();
+
+    const myInputButton = document.getElementById('myInput');
+    myInputButton.addEventListener('click', function() {
+      login('username', 'password', onLoginSuccess);
+    });
+
+</script>
+</body>
+</html>

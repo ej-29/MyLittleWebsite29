@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cej.boot.backend.mapper.BoardMapper">
+    <resultMap id="board" type="cej.boot.backend.dto.BoardDTO">
+        <id property="bd_num" column="BD_NUM"/>
+        <result property="bd_id" column="BD_ID"/>
+        <result property="bd_title" column="BD_TITLE"/>
+        <result property="bd_content" column="BD_CONTENT"/>
+        <result property="bd_date" column="BD_DATE"/>
+        <result property="bd_udate" column="BD_UDATE"/>
+    </resultMap>
+    <select id="list" resultType="cej.boot.backend.dto.BoardDTO">
+        select * from BOARD order by BD_NUM desc
+    </select>
+<!--       <insert id="write" parameterType="hashMap">-->
+<!--        <selectKey keyProperty="bd_num" order="BEFORE" resultType="long">-->
+<!--            select BOARD_SEQ.nextval from dual-->
+<!--        </selectKey>-->
+<!--        insert into BOARD values(#{bd_num}, #{bd_id, jdbcType=VARCHAR}, #{bd_title, jdbcType=VARCHAR}, #{bd_content, jdbcType=VARCHAR}, SYSDATE, SYSDATE)-->
+<!--       </insert>-->
+
+    <insert id="write" parameterType="BoardDTO">
+        <selectKey keyProperty="bd_num" order="BEFORE" resultType="long">
+            select BOARD_SEQ.nextval from dual
+        </selectKey>
+        insert into BOARD values(#{bd_num}, #{bd_id, jdbcType=VARCHAR}, #{bd_title, jdbcType=VARCHAR}, #{bd_content, jdbcType=VARCHAR}, SYSDATE, SYSDATE)
+    </insert>
+
+    <select id="content" parameterType="hashMap" resultType="BoardDTO">
+        select BD_NUM, BD_ID, BD_TITLE, BD_CONTENT, BD_DATE, BD_UDATE from BOARD
+        where BD_NUM=#{bd_num, jdbcType=VARCHAR}
+    </select>
+
+    <update id="update" parameterType="hashMap">
+        update BOARD
+        set BD_TITLE = #{bd_title}, BD_CONTENT = #{bd_content}, BD_UDATE = SYSDATE
+        where BD_NUM = #{bd_num, jdbcType=VARCHAR} and BD_ID = #{bd_id, jdbcType=VARCHAR}
+    </update>
+
+    <select id="getBoard" parameterType="long" resultType="BoardDTO">
+        SELECT *
+        FROM BOARD
+        WHERE BD_NUM = #{bd_num}
+    </select>
+
+    <delete id="delete" parameterType="long">
+        delete from BOARD where BD_NUM = #{bd_num, jdbcType=VARCHAR}
+    </delete>
+
+</mapper>
+

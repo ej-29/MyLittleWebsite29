@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/draw.css">
+<script src="/js/trim.js"></script>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Bye Bye</title>
+</head>
+<script>
+  function check() {
+    draw();
+}
+
+function draw() {
+var form = document.input;
+form.action = "/draw.do";
+form.submit();
+}
+
+</script>
+<body class="body">
+<br>
+<div class="back"><a href="/board/list.do"><img src="/img/back.png"></a></div>
+<div>
+  <center><span class="header">Bye bye :(</span></center></div>
+<br>
+<div class="bgVideo">
+  <video class="bgVideoContent" autoplay muted loop>
+    <source src="/video/video.mp4" type="video/mp4" />
+    <source src="/video/video.webm" type="video/webm" />
+    Your browser is not supported!
+  </video>
+</div>
+<center>
+  <span class="drawFont"><h3>Withdraw</h3></span>
+</center>
+
+<form name="drawForm" method="get" action="/draw.do?mb_num=${#session.getAttribute('member') != null ? #session.getAttribute('member')?.mb_num : ''}">
+  <table class="drawTable" width="600" align="center">
+    <tr>
+      <td><h2 align="center">Good Bye!</h2></td>
+    </tr>
+    <tr>
+      <td><h2 align="center">Press the button ↓</h2></td>
+    </tr>
+    <tr>
+      <td class="tdButtons" colspan="2" align="center">
+        <!-- onclick 속성을 사용하여 유효성 검사를 수행 -->
+        <a href="draw.do"><button id="drawButton" class="button-class" onclick="check()"><img src="/img/withdrawButton.png"></button></a>
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+
+
+</body>
+</html>
+
+

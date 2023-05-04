@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/selfIntroduce.css">
+<script src="/js/trim.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Self-Introduction: My Little Website</title>
+</head>
+<body>
+<div class="back"><a href="/selfIntroduce"><img src="/img/back.png"></a></div>
+<div id="menu">
+  <br>
+  <ul>
+    <li><a href="/selfIntroduce/cej" onclick="do_click();">이름 및 생년월일</a></li><br>
+    <li><a href="/selfIntroduce/school" onclick="do_click();">학력</a></li><br>
+    <li><a href="/selfIntroduce/career" onclick="do_click();">이력</a></li><br>
+    <li><a href="/selfIntroduce/class" onclick="do_click();">수강한 교육</a></li><br>
+    <li><a href="/selfIntroduce/portfolio" onclick="do_click();">포트폴리오</a></li><br>
+    <li><a href="/selfIntroduce/stWk" onclick="do_click();">장/단점</a></li><br>
+    <li><a href="/board/list.do" onclick="do_click();">Board</a></li><br>
+  </ul>
+</div>
+<div id="content">
+  <div class="bgVideo">
+    <video class="bgVideoContent" autoplay muted loop>
+      <source src="/video/video.mp4" type="video/mp4" />
+      <source src="/video/video.webm" type="video/webm" />
+      Your browser is not supported!
+    </video>
+  </div>
+  <div id="listDiv">
+    <ul>
+      <li><h2>고무줄 같은 탄성</h2></li><br>
+      <li>고무줄처럼 유연성을 가진 것이 저의 단점이자 장점입니다</li><br>
+      <li>외향적이기도 내향적이기도 하여 사람들이 가끔씩 파악하기 힘들다며 말하곤 하지만</li><br>
+      <li>팀프로젝트 시 소통이 필요한 상황에서는 <b>'외향적으로'</b></li><br>
+      <li>혼자 작업할 때에는 <b>'내향적으로'</b></li><br>
+      <li>카멜레온처럼 변할 줄 아는 것이 저의 장점이기도 합니다!</li><br>
+      <li><b><u>고무줄 같은 탄성</u></b>을 보여드리겠습니다!</li><br>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
